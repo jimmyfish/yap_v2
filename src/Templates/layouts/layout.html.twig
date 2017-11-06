@@ -7,7 +7,7 @@
     <title>YAP! - {% block title %}{% endblock %}</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ app.request.basepath }}/public/assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="{{ app.request.basepath }}/public/assets/img/logo_yap2.png" />
 
     <!-- Google Fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;Raleway:300,400,500,600,700,800,900">
@@ -69,7 +69,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="{{ path('home') }}">
                             <span><img src="{{ app.request.basepath }}/public/assets/img/Logo_YAP.png" alt="logo"></span>
                             &nbsp;
                             &nbsp;
@@ -104,7 +104,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="footer-info iq-mt-50 iq-mb-30">
-                        <img id="logo_img" class="img-responsive center-block iq-mb-10 wow zoomIn" data-wow-duration="1s" src="{{ app.request.basepath }}/public/assets/images/logo-footer.png" alt="">
+                        <img id="logo_img" class="img-responsive center-block iq-mb-10 wow zoomIn" data-wow-duration="1s" src="{{ app.request.basepath }}/public/assets/img/logo_yap2.png" alt="">
                         <p>Menjadi yang terdepan di ranah pembayaran online untuk segmen membawa motivasi baru bagi YAP! untuk mengembangkan bisnisnya lebih luas lagi dan menjangkau konsumen. novasi tanpa batas adalah komitmen YAP! untuk terus menjadi perusahaan pembayaran terdepan, dapat diandalkan dan terus dapat berperan dalam memajukan ekonomi indonesia.</p>
                     </div>
                 </div>

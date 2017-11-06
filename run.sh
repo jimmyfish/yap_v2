@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-php -S localhost:1234 -t public/
+php -S localhost:1234

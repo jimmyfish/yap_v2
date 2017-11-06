@@ -3522,3 +3522,21 @@ header.affix .navbar-nav {
 .theme-background-color {
     background: linear-gradient(to right, rgba(97, 190, 186, 0.8) 0%, rgba(0, 88, 161, 0.8) 100%);
 }
+
+#support .title, #support p {
+    color: #fff;
+}
+
+#support {
+    padding-bottom: 0;
+}
+
+@media screen and (max-width: 992px) {
+    header .navbar-header .navbar-brand img {
+        height: 40px !important;
+    }
+
+    .affix-top .navbar-header .navbar-brand img {
+        margin-top: 13px;
+    }
+}

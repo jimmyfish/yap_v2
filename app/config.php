@@ -26,7 +26,7 @@ return [
     'twig' => [
         'twig.path' => __DIR__ . '/../src/Templates',
         'twig.options' => [
-            'cache' => __DIR__ . '/cache/app_template',
+            // 'cache' => __DIR__ . '/cache/app_template',
             'auto_reload' => true
         ]
     ],

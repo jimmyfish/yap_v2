@@ -57,9 +57,26 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
 /*---------------------------------------------------------------------
                                General
 -----------------------------------------------------------------------*/
+@font-face {
+    font-family: "GothamRound";
+    src: url('../fonts/GothamRoundedBook_21018.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "GothamRound";
+    src: url('../fonts/GothamRoundedMedium_21022.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "GothamRound";
+    src: url('../fonts/GothamRoundedLight_21020.ttf');
+    font-weight: 300;
+}
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'GothamRound', sans-serif;
     font-weight: normal;
     font-style: normal;
     font-size: 14px;
@@ -93,11 +110,15 @@ a, .button, input {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'GothamRound', sans-serif;
     font-weight: normal;
     color: #333333;
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+p {
+    font-size: 19px;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -111,7 +132,7 @@ h1 {
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 28px;
     font-style: normal;
     line-height: 44px;
 }
@@ -156,10 +177,11 @@ li {
 }
 
 hr {
-    margin: 0;
+    margin: 0 auto 50px;
     padding: 0px;
     border-bottom: 1px solid #e0e0e0;
     border-top: 0px;
+    width: 85%;
 }
 
 label {
@@ -355,7 +377,7 @@ blockquote {
     font-weight: 600;
     border: none;
     position: relative;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'GothamRound', sans-serif;
     display: inline-block;
     text-transform: uppercase;
     -webkit-border-radius: 90px;
@@ -702,7 +724,7 @@ Padding Bottom
 }
 
 .iq-pb-80 {
-    padding-bottom: 80px;
+    padding-bottom: 80px !important;
 }
 
 .iq-pb-90 {
@@ -711,6 +733,10 @@ Padding Bottom
 
 .iq-pb-100 {
     padding-bottom: 100px;
+}
+
+.iq-pb-120 {
+    padding-bottom: 120px;
 }
 
 /*----------------
@@ -1531,13 +1557,28 @@ header .navbar-default .navbar-brand {
 }
 
 header .navbar-nav {
-    margin-top: 18px;
+    /*margin-top: 18px;*/
     transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
+}
+
+@media screen and (min-width: 992px) {
+    header .navbar-nav {
+        margin-left: 50px;
+        width: 85%;
+    }
+
+    .navbar-nav span {
+        float: right;
+    }
+
+    .navbar-nav span img {
+        margin-left: 30px;
+    }
 }
 
 header .navbar-nav > li {
@@ -1551,7 +1592,7 @@ header .navbar-default .navbar-nav li:last-child {
 header .navbar-default .navbar-nav > li > a {
     color: #ffffff;
     padding: 10px 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'GothamRound', sans-serif;
     font-size: 15px;
 }
 
@@ -1572,7 +1613,9 @@ header .nav > li a::before {
     transition: all 0.3s ease-out 0s;
 }
 
-header .nav > li.active > a::before, header .nav > li:hover > a::before, header .nav > li > a:hover::before {
+header .nav > li.active > a:not(.btn)::before,
+header .nav > li:hover > a:not(.btn)::before,
+header .nav > li > a:not(.btn):hover::before {
     width: 100%;
 }
 
@@ -1599,17 +1642,13 @@ header.affix .navbar-default {
     margin: 10px 0;
 }
 
-header.affix .navbar-nav {
-    margin-top: 6px;
-}
-
 /*---------------------------------------------------------------------
                             Banner
 -----------------------------------------------------------------------*/
 .banner-text {
     color: #fff;
-    font-family: 'Raleway', sans-serif;
-    margin: 16% 0 8%;
+    font-family: 'GothamRound', sans-serif;
+    margin: 18% 0 8%;
 }
 
 .img-one {
@@ -1617,19 +1656,20 @@ header.affix .navbar-nav {
 }
 
 .banner-text h1 {
-    font-weight: 400;
+    font-weight: 700;
     font-size: 80px;
-    line-height: 100px;
+    line-height: 80px;
     margin-bottom: 30px;
     text-shadow: 0px 20px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 15%;
+    margin-top: 6%;
     letter-spacing: 2px;
 }
 
 .banner-text h1 small {
-    font-size: 18px;
+    font-size: 19px;
     display: block;
     text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+    line-height: 30px;
 }
 
 .banner-text .link h5 {
@@ -1640,7 +1680,7 @@ header.affix .navbar-nav {
 
 /*.banner-text .link h5:before { position: absolute; top: 20px; right: -25px; content: ""; background: url('../images/arrow.png') no-repeat 0 0; width: 61px; height: 58px; }*/
 .banner-text .link li {
-    margin: 0 5px;
+    /*margin: 0 5px;*/
 }
 
 .banner-text .link li a {
@@ -1764,7 +1804,7 @@ header.affix .navbar-nav {
 /*---------------------------------------------------------------------
                             About us
 -----------------------------------------------------------------------*/
-.iq-about-bg:before {
+/*.iq-about-bg:before {
     background: url('../images/about/01.jpg');
     position: absolute;
     right: 100%;
@@ -1773,7 +1813,7 @@ header.affix .navbar-nav {
     content: "";
     height: 100%;
     background-attachment: fixed;
-}
+}*/
 
 .iq-about-bg:after {
     position: absolute;
@@ -2122,7 +2162,7 @@ header.affix .navbar-nav {
 }
 
 .iq-app-info {
-    padding: 30px 15% 0% 29%;
+    padding: 30px 15% 0% 15%;
 }
 
 .iq-app-screen:before {
@@ -2542,7 +2582,7 @@ header.affix .navbar-nav {
 -----------------------------------------------------------------------*/
 .counter {
     position: relative;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'GothamRound', sans-serif;
     min-height: 60px;
 }
 
@@ -2625,8 +2665,8 @@ header.affix .navbar-nav {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 8px 14px;
-    font-size: 26px;
+    padding: 13px 14px;
+    font-size: 19px;
     height: 100%;
     color: #fff;
     -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.06);
@@ -2700,7 +2740,7 @@ header.affix .navbar-nav {
 }
 
 .iq-pricing .price-title h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'GothamRound', sans-serif;
     line-height: 60px;
     font-size: 50px;
 }
@@ -2850,8 +2890,6 @@ header.affix .navbar-nav {
 
 .info-share {
     margin: 30px 0 0;
-    padding: 30px 0 0;
-    border-top: 1px solid #ededed;
     text-align: center;
 }
 
@@ -2988,7 +3026,7 @@ header.affix .navbar-nav {
 }
 
 .iq-breadcrumb-title .title span {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'GothamRound', sans-serif;
 }
 
 .iq-breadcrumb .breadcrumb {
@@ -3380,7 +3418,7 @@ header.affix .navbar-nav {
 -----------------------------------------------------------------------*/
 .iq-error .big-text {
     font-size: 180px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'GothamRound', sans-serif;
     line-height: 180px;
     color: #333333;
 }
@@ -3415,7 +3453,7 @@ header.affix .navbar-nav {
 -----------------------------------------------------------------------*/
 .iq-coming .big-text {
     font-size: 80px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'GothamRound', sans-serif;
     text-transform: uppercase;
     color: #333333;
 }
@@ -3539,4 +3577,254 @@ header.affix .navbar-nav {
     .affix-top .navbar-header .navbar-brand img {
         margin-top: 13px;
     }
+}
+
+@media (min-width: 992px) {
+    .carousel-inner .item {
+        margin-top: -50px;
+    }
+}
+
+.iq-fancy-box-04 .iq-icon {
+    float: left;
+    border-radius: 90px;
+    height: 70px;
+    width: 70px;
+    line-height: 78px;
+    text-align: center;
+    margin-right: 15px;
+    color: #ffffff;
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+.iq-fancy-box-04 .iq-icon i {
+    font-size: 25px;
+}
+
+.iq-fancy-box-04 .fancy-content {
+    display: table-cell;
+    padding: 10px 10px 10px 0;
+}
+
+.iq-fancy-box-04 .fancy-content a {
+    font-size: 16px;
+    color: #666;
+}
+
+.iq-fancy-box-04 img {
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.iq-bt-1 {
+    border-top: 1px solid #999;
+}
+
+.iq-mobile-app .iq-mobile-box {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: -190px;
+    margin-top: -30px;
+}
+
+.iq-mobile-app .icon-01 {
+    left: 0;
+    top: 50px;
+}
+
+.iq-mobile-app .icon-01 img {
+    height: 130px;
+}
+
+.iq-mobile-app .iq-mobile-icon {
+    position: absolute;
+}
+
+.iq-mobile-app .icon-04 {
+    right: -100px;
+    top: 250px;
+}
+
+.iq-mobile-app .icon-05 {
+    right: 200px;
+    bottom: 55px;
+    z-index: 9;
+}
+
+.iq-mobile-app .icon-05 img {
+    height: 200px;
+}
+
+.carousel-inner {
+    overflow: visible;
+}
+
+.iq-mobile-app .iq-mobile-box .iq-mobile-img {
+    position: relative;
+    /*z-index: 9;*/
+    height: 500px;
+}
+
+.navbar-nav {
+    font-weight: 700;
+}
+
+.btn-merchant {
+    border-radius: 20px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 700;
+    transition: all .4s ease;
+    padding: 6px 25px;
+}
+
+.btn-merchant:hover {
+    color: #000;
+    background: #fff;
+    transition: all .4s ease;
+}
+
+/*@media screen and (max-width: 768px) {
+    .btn-merchant {
+        color: #000;
+        border-radius: 0;
+        border: none;
+    }
+
+    .navbar-nav li.pull-right-lg .btn {
+        text-align: left;
+    }
+}*/
+
+.jumbotron {
+    background: rgba(0, 88, 161, 1);
+    background: -moz-linear-gradient(left, rgba(0, 88, 161, 1) 0%, rgba(97, 190, 186, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0, 88, 161, 1)), color-stop(100%, rgba(97, 190, 186, 1)));
+    background: -webkit-linear-gradient(left, rgba(0, 88, 161, 1) 0%, rgba(97, 190, 186, 1) 100%);
+    background: -o-linear-gradient(left, rgba(0, 88, 161, 1) 0%, rgba(97, 190, 186, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(0, 88, 161, 1) 0%, rgba(97, 190, 186, 1) 100%);
+    background: linear-gradient(to right, rgba(0, 88, 161, 1) 0%, rgba(97, 190, 186, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0058a1', endColorstr='#61BEBA', GradientType=1);
+}
+
+.jumbotron p {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.hv-100 {
+    min-height: 100vh;
+}
+
+.do-magic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.tw {
+    font-weight: 700;
+    font-size: 2.5em;
+}
+
+#mekanism .iq-icon {
+    border-radius: 90px;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #ffffff;
+    -webkit-transition: all 0.5s ease-out 0s;
+    -moz-transition: all 0.5s ease-out 0s;
+    -ms-transition: all 0.5s ease-out 0s;
+    -o-transition: all 0.5s ease-out 0s;
+    transition: all 0.5s ease-out 0s;
+    background: rgba(9, 179, 239, 1);
+    background: -moz-linear-gradient(left, rgba(9, 179, 239, 1) 0%, rgba(30, 80, 226, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(9, 179, 239, 1)), color-stop(100%, rgba(30, 80, 226, 1)));
+    background: -webkit-linear-gradient(left, rgba(9, 179, 239, 1) 0%, rgba(30, 80, 226, 1) 100%);
+    background: -o-linear-gradient(left, rgba(9, 179, 239, 1) 0%, rgba(30, 80, 226, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(9, 179, 239, 1) 0%, rgba(30, 80, 226, 1) 100%);
+    background: linear-gradient(to right, rgba(9, 179, 239, 1) 0%, rgba(30, 80, 226, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09b3ef', endColorstr='#1e50e2', GradientType=1);
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+#mekanism .step span {
+    font-size: 19px;
+
+}
+
+#mekanism .magical {
+    position: relative;
+    display: table;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#mekanism .tc {
+    display: table-cell;
+    height: 72px;
+}
+
+#mekanism .h72 {
+    height: 72px;
+}
+
+#mekanism .jumbotron {
+    background: #ccc;
+    border-radius: 0;
+    padding: 10px 20px;
+}
+
+#mekanism .jumbotron h5 {
+    font-size: 16px;
+}
+
+@media screen and (min-width: 992px) {
+    .infografik {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .tc {
+        height: 96px !important;
+    }
+
+    .h72 {
+        height: 96px !important;
+    }
+
+    .mt-sm {
+        margin-top: 20px;
+    }
+
+    .tc span {
+        font-size: .95em !important;
+        text-align: justify;
+        padding-left: 10px;
+    }
+}
+
+.decimal-list li {
+    list-style: decimal !important;
+}
+
+.iq-uppercase {
+    text-transform: uppercase;
+}
+
+.decimal-list li:not('.active') {
+    color: #aaa;
 }

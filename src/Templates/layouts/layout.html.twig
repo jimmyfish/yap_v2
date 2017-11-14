@@ -71,19 +71,30 @@
                         </button>
                         <a class="navbar-brand" href="{{ path('home') }}">
                             <span><img src="{{ app.request.basepath }}/public/assets/img/Logo_YAP.png" alt="logo"></span>
+                            <!-- &nbsp;
                             &nbsp;
                             &nbsp;
-                            &nbsp;
-                            <span><img src="{{ app.request.basepath }}/public/assets/img/Logo_BNI.png" alt="logo"></span>
+                            <span><img src="{{ app.request.basepath }}/public/assets/img/Logo_BNI.png" alt="logo"></span> -->
                         </a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     {% set uriPath = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right" id="top-menu">
-                            <li><a href="{{ path('home') }}">Home</a></li>
+                        <ul class="nav navbar-nav" id="top-menu">
+                            <!-- <li><a href="{{ path('home') }}">Home</a></li>
                             <li><a href="{{ path('contact') }}">Contact</a></li>
-                            <li><a href="{{ path('support') }}">Support</a></li>
+                            <li><a href="{{ path('support') }}">Support</a></li> -->
+                            <li><a href="{{ path('about') }}">Tentang Kami</a></li>
+                            <li><a href="{{ path('support') }}">Layanan</a></li>
+                            <li><a href="{{ path('blog_page') }}">Promo &amp; Blog</a></li>
+                            <li><a href="{{ path('contact') }}">FAQ</a></li>
+                            <li class="hidden-lg"><a href="#crystal">Bergabung Menjadi Merchant</a></li>
+                            <span class="hidden-sm hidden-xs hidden-md">
+                                <a href="#bergabung" class="btn btn-merchant">Bergabung Menjadi Merchant</a>
+                                <a href="http://www.bni.co.id/id-id/" class="hidden-xs" target="_blank">
+                                    <img src="{{ app.request.basepath }}/public/assets/img/logo_bni.png" alt="">
+                                </a>
+                            </span>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -98,20 +109,51 @@
 {% block content %}{% endblock %}
 
 <div class="footer">
-
-    <footer class="iq-footer white-bg text-center">
+    <footer>
         <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="footer-info iq-mt-50 iq-mb-30">
-                        <img id="logo_img" class="img-responsive center-block iq-mb-10 wow zoomIn" data-wow-duration="1s" src="{{ app.request.basepath }}/public/assets/img/logo_yap2.png" alt="">
-                        <p>Menjadi yang terdepan di ranah pembayaran online untuk segmen membawa motivasi baru bagi YAP! untuk mengembangkan bisnisnya lebih luas lagi dan menjangkau konsumen. novasi tanpa batas adalah komitmen YAP! untuk terus menjadi perusahaan pembayaran terdepan, dapat diandalkan dan terus dapat berperan dalam memajukan ekonomi indonesia.</p>
+            <div class="row iq-ptb-40">
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                    <div class="iq-fancy-box-04">
+                        <a href="{{ path('home')}}"><img src="{{ app.request.basepath }}/public/assets/img/logo_yap2.png" alt="" class="img-responsive"></a>
                     </div>
                 </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 iq-mt-15">
+                    <div class="iq-fancy-box-04">
+                        <div class="iq-icon green-bg">
+                            <i aria-hidden="true" class="fa fa-credit-card-alt"></i>
+                        </div>
+                        <div class="fancy-content">
+                            <a href="https://eform.bni.co.id/BNI_eForm/kartuKredit" target="_blank"><p class="iq-tw-6">Apply BNI <br>Credit Card</p></a>
+                            <!-- <span class="lead iq-tw-6">1234 North Luke Lane, South Bend,IN 360001</span> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 iq-mt-15">
+                    <div class="iq-fancy-box-04">
+                        <div class="iq-icon green-bg">
+                            <i aria-hidden="true" class="fa fa-address-book-o"></i>
+                        </div>
+                        <div class="fancy-content">
+                            <a href="https://eform.bni.co.id/BNI_eForm/bukasimpanan" target="_blank"><p class="iq-tw-6">Apply BNI <br> Saving Account</p></a>
+                            <!-- <span class="lead iq-tw-6">1234 North Luke Lane, South Bend,IN 360001</span> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-1 col-lg-1">&nbsp;</div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
+
+                        <ul class="info-share">
+                            <li><a href="http://twitter.com/bni" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="http://facebook.com/bni" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="http://instagram.com/bni46" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="http://www.youtube.com/BNITVC" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+
+                </div>
             </div>
-            <div class="row">
+            <div class="row iq-footer-03 white-bg iq-pt-20 iq-pb-50">
                 <div class="col-sm-12">
-                    <div class="footer-copyright iq-ptb-20">&copy; Hak Cipta <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> PT. Bank Negara Indonesia (Persero), Tbk.</div>
+                    <div class="footer-copyright iq-pt-30">&copy; Hak Cipta <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> PT. Bank Negara Indonesia (Persero), Tbk. <span class="pull-right">BNI Terdaftar dan diawasi oleh Otoritas Jasa Keuangan.</span> </div>
                 </div>
             </div>
         </div>
@@ -144,6 +186,8 @@
 <!-- wow -->
 <script type="text/javascript" src="{{ app.request.basepath }}/public/assets/js/wow.min.js"></script>
 
+<script type="text/javascript" src="{{ app.request.basepath }}/public/assets/js/skrollr.min.js"></script>
+
 <!-- Countdown -->
 <script type="text/javascript" src="{{ app.request.basepath }}/public/assets/js/jquery.countdown.min.js"></script>
 
@@ -154,7 +198,7 @@
 {#<script type="text/javascript" src="{{ app.request.basepath }}/public/assets/js/style-customizer.js"></script>#}
 
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -164,7 +208,7 @@
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
     })();
-</script>
+</script> -->
 <!--End of Tawk.to Script-->
 </body>
 

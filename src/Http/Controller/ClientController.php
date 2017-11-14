@@ -36,13 +36,45 @@ class ClientController implements ControllerProviderInterface
         $controllers->get('/', [$this, 'homeAction'])
             ->bind('home');
 
-        $controllers->match('/contact', [$this, 'contactAction'])
+        $controllers->match('/faq', [$this, 'contactAction'])
             ->bind('contact');
 
-        $controllers->match('/support', [$this, 'supportAction'])
+        $controllers->match('/layanan', [$this, 'supportAction'])
             ->bind('support');
 
+        $controllers->get('/underconstruct', [$this, 'uConstructAction'])
+            ->bind('u_construct');
+
+        $controllers->get('/tentang', [$this, 'aboutAction'])
+            ->bind('about');
+
+        $controllers->get('/blog', [$this, 'blogAction'])
+            ->bind('blog_page');
+
+        $controllers->get('/event-detail/{id}', [$this, 'eventDetailAction'])
+            ->bind('event_detail');
+
         return $controllers;
+    }
+
+    public function eventDetailAction()
+    {
+        return $this->app['twig']->render('client/blog_detail.html.twig');
+    }
+
+    public function blogAction()
+    {
+        return $this->app['twig']->render('client/blog.html.twig');
+    }
+
+    public function aboutAction()
+    {
+        return $this->app['twig']->render('client/about.html.twig');
+    }
+
+    public function uConstructAction()
+    {
+        return $this->app['twig']->render('client/underconstruct.html.twig');
     }
 
     public function homeAction(Request $request)
@@ -65,7 +97,7 @@ class ClientController implements ControllerProviderInterface
             $message = \Swift_Message::newInstance();
             $message->setSubject('Website Feedback');
             $message->setFrom([$content['email'] => 'YAP! Website']);
-            $message->setTo(['yap.indonesia46@gmail.com']);
+            $message->setTo(['info@yap.id']);
             $message->setBody(
                 $this->app['twig']->render(
                     'client/transport.html.twig',

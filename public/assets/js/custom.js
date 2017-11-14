@@ -62,6 +62,23 @@ function backtotop() {
     });
 }
 
+function imgskrollr() {
+    var mySkrollr = skrollr.init({
+        forceHeight: false,
+        easings: {
+            easeOutBack: function(p, s) {
+                s = 1.70158;
+                p = p - 1;
+                return (p * p * ((s + 1) * p + s) + 1);
+            }
+        },
+        mobileCheck: function() {
+            //hack - forces mobile version to be off
+            return false;
+        }
+    });
+}
+
 /*************************
       Silder
 *************************/
@@ -72,7 +89,7 @@ function backtotop() {
 function silder() {
 
     (function($) {
-        //Function to animate slider captions 
+        //Function to animate slider captions
         function doAnimations(elems) {
             //Cache the animationend event in a variable
             var animEndEv = 'webkitAnimationEnd animationend';
@@ -86,21 +103,21 @@ function silder() {
             });
         }
 
-        //Variables on page load 
+        //Variables on page load
         var $myCarousel = $('#carousel-example-generic'),
             $firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
 
-        //Initialize carousel 
+        //Initialize carousel
         $myCarousel.carousel();
 
-        //Animate captions in first slide on page load 
+        //Animate captions in first slide on page load
         doAnimations($firstAnimatingElems);
 
-        //Pause carousel  
+        //Pause carousel
         $myCarousel.carousel('pause');
 
 
-        //Other slides to be animated on carousel slide event 
+        //Other slides to be animated on carousel slide event
         $myCarousel.on('slide.bs.carousel', function(e) {
             var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
             doAnimations($animatingElems);
@@ -181,7 +198,7 @@ function countdown1() {
 }
 
 /*************************
-       owl-carousel 
+       owl-carousel
 *************************/
 function owlcarousel() {
     $(".owl-carousel").each(function() {
@@ -232,24 +249,24 @@ function owlcarousel() {
     widget
 *************************/
 function widget() {
-    $('.iq-widget-menu > ul > li > a').on('click', function() {
-        var checkElement = $(this).next();
-        $('.iq-widget-menu li').removeClass('active');
-        $(this).closest('li').addClass('active');
-        if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-            $(this).closest('li').removeClass('active');
-            checkElement.slideUp('normal');
-        }
-        if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-            $('.iq-widget-menu ul ul:visible').slideUp('normal');
-            checkElement.slideDown('normal');
-        }
-        if ($(this).closest('li').find('ul').children().length === 0) {
-            return true;
-        } else {
-            return false;
-        }
-    });
+    // $('.iq-widget-menu > ul > li > a').on('click', function() {
+    //     var checkElement = $(this).next();
+    //     $('.iq-widget-menu li').removeClass('active');
+    //     $(this).closest('li').addClass('active');
+    //     if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+    //         $(this).closest('li').removeClass('active');
+    //         checkElement.slideUp('normal');
+    //     }
+    //     if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+    //         $('.iq-widget-menu ul ul:visible').slideUp('normal');
+    //         checkElement.slideDown('normal');
+    //     }
+    //     if ($(this).closest('li').find('ul').children().length === 0) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // });
 }
 
 
@@ -366,6 +383,7 @@ $(document).ready(function() {
     preloader(),
         backtotop(),
         navbar(),
+        imgskrollr(),
         popupgallery(),
         hovereffect(),
         owlcarousel(),
